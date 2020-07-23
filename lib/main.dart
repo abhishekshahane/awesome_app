@@ -46,10 +46,21 @@ class HomePage extends StatelessWidget {
           color: Colors.teal,
         ),
       ),
+      /*
+      This particular icon is to edit.
+      It is found in Icon(Icons.edit)
+      You can choose from several options.
+      */
       floatingActionButton: FloatingActionButton(
         onPressed: () {},
         child: Icon(Icons.edit),
       ),
+      drawer: Drawer(
+        child: ListView(children: <Widget>[
+          DrawerHeader(child: Text("Hi, I am text!")),
+        ]),
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
     );
   }
 }
