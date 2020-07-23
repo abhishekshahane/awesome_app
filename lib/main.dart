@@ -56,8 +56,22 @@ class HomePage extends StatelessWidget {
         child: Icon(Icons.edit),
       ),
       drawer: Drawer(
-        child: ListView(children: <Widget>[
-          DrawerHeader(child: Text("Hi, I am text!")),
+        child: ListView(padding: const EdgeInsets.all(0), children: <Widget>[
+          UserAccountsDrawerHeader(
+              accountName: Text("DaCoder555"),
+              accountEmail: Text("nintendo.spy123@gmail.com")),
+          ListTile(
+            leading: Icon(Icons.person),
+            title: Text("Hi, I am Abhishek"),
+            subtitle: Text("Developer, working in Flutter"),
+            trailing: Icon(Icons.edit),
+          ),
+          ListTile(
+            leading: Icon(Icons.email),
+            title: Text("Email"),
+            subtitle: Text("nintendo.spy123@gmail.com"),
+            trailing: Icon(Icons.edit),
+          )
         ]),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
