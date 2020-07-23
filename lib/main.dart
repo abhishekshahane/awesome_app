@@ -31,15 +31,35 @@ class HomePage extends StatelessWidget {
         title: Text("Flutter is nice"),
       ),
       // Now for the body
+      /*
+      Since we want to center it, we have to make the body 'center'
+      and the the child below a container. So flipping, essentially.
+      The clipbehaviour should be set to anti-alias, because
+      we don't want it to go outside.
+      We do want the rectangle to be circular, so adding
+      borderRadius(10).
+      */
       body: Center(
         child: Container(
-          padding: const EdgeInsets.all(8),
-          color: Colors.red,
-          width: 100,
-          height: 100,
-          alignment: Alignment.center,
-          child: Text("I am a box"),
-        ),
+            padding: const EdgeInsets.all(8),
+            width: 100,
+            height: 100,
+            clipBehavior: Clip.antiAlias,
+            alignment: Alignment.center,
+            decoration: BoxDecoration(
+                color: Colors.lightBlueAccent,
+                borderRadius: BorderRadius.circular(5),
+                gradient: LinearGradient(colors: [
+                  Colors.pink,
+                  Colors.yellow,
+                ]),
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.grey,
+                    blurRadius: 5,
+                  )
+                ]),
+            child: Text("I am a box")),
       ),
     );
   }
