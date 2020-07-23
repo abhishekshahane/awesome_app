@@ -27,12 +27,20 @@ class HomePage extends StatelessWidget {
     appBar: AppBar(title: Text("Flutter is nice"))
     */
     return Scaffold(
-        appBar: AppBar(
-          title: Text("Flutter is nice"),
+      appBar: AppBar(
+        title: Text("Flutter is nice"),
+      ),
+      // Now for the body
+      body: Center(
+        child: Container(
+          padding: const EdgeInsets.all(8),
+          color: Colors.red,
+          width: 100,
+          height: 100,
+          alignment: Alignment.center,
+          child: Text("I am a box"),
         ),
-        // Now for the body
-        body: Container(
-          child: Text("Hi flutter"),
-        ));
+      ),
+    );
   }
 }
