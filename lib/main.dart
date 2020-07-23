@@ -27,11 +27,11 @@ class HomePage extends StatelessWidget {
     appBar: AppBar(title: Text("Flutter is nice"))
     */
     return Scaffold(
-      appBar: AppBar(
-        title: Text("Flutter is nice"),
-      ),
-      // Now for the body
-      /*
+        appBar: AppBar(
+          title: Text("Flutter is nice"),
+        ),
+        // Now for the body
+        /*
       Since we want to center it, we have to make the body 'center'
       and the the child below a container. So flipping, essentially.
       The clipbehaviour should be set to anti-alias, because
@@ -39,36 +39,35 @@ class HomePage extends StatelessWidget {
       We do want the rectangle to be circular, so adding
       borderRadius(10).
       */
-      body: Center(
-        child: Container(
-            padding: const EdgeInsets.all(8),
-            width: 100,
+        body: Container(
             height: 100,
-            clipBehavior: Clip.antiAlias,
-            alignment: Alignment.center,
-            decoration: BoxDecoration(
-                color: Colors.lightBlueAccent,
-                borderRadius: BorderRadius.circular(5),
-                gradient: LinearGradient(colors: [
-                  Colors.pink,
-                  Colors.yellow,
-                ]),
-                boxShadow: [
-                  BoxShadow(
-                    color: Colors.grey,
-                    blurRadius: 5,
-                  )
-                ]),
-            child: Text(
-              "I am a box",
-              textAlign: TextAlign.center,
-              style: TextStyle(
-                fontSize: 20,
-                color: Colors.lightBlueAccent,
-                fontWeight: FontWeight.bold,
-              ),
-            )),
-      ),
-    );
+            color: Colors.teal,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: <Widget>[
+                Container(
+                  padding: const EdgeInsets.all(8),
+                  width: 100,
+                  height: 100,
+                  color: Colors.red,
+                  alignment: Alignment.center,
+                ),
+                Container(
+                  padding: const EdgeInsets.all(8),
+                  width: 100,
+                  height: 100,
+                  color: Colors.green,
+                  alignment: Alignment.center,
+                ),
+                Container(
+                  padding: const EdgeInsets.all(8),
+                  width: 100,
+                  height: 100,
+                  color: Colors.yellow,
+                  alignment: Alignment.center,
+                ),
+              ],
+            )));
   }
 }
