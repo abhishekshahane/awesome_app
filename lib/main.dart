@@ -59,7 +59,15 @@ class HomePage extends StatelessWidget {
                     blurRadius: 5,
                   )
                 ]),
-            child: Text("I am a box")),
+            child: Text(
+              "I am a box",
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                fontSize: 20,
+                color: Colors.lightBlueAccent,
+                fontWeight: FontWeight.bold,
+              ),
+            )),
       ),
     );
   }
