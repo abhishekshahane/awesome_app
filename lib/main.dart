@@ -18,7 +18,15 @@ Overiding the first method, but inherting
 the previous Widget.
 By class.
 */
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
+  @override
+  _HomePageState createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  var myText = "My name is";
+  TextEditingController _nameController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     /*
@@ -27,6 +35,7 @@ class HomePage extends StatelessWidget {
     appBar: AppBar(title: Text("Flutter is nice"))
     */
     return Scaffold(
+      backgroundColor: Colors.lightBlueAccent[50],
       appBar: AppBar(
         title: Text("Flutter is nice"),
       ),
@@ -39,11 +48,43 @@ class HomePage extends StatelessWidget {
       We do want the rectangle to be circular, so adding
       borderRadius(10).
       */
+      /*
+      The purpose of the code below is to
+      make a nice card containing our image,
+      that we uploaded here.
+      */
       body: Center(
-        child: Container(
-          height: 100,
-          width: 100,
-          color: Colors.teal,
+        child: Padding(
+          padding: const EdgeInsets.all(16),
+          child: SingleChildScrollView(
+            child: Card(
+              child: Column(
+                children: <Widget>[
+                  Image.asset(
+                    "assets/codecode.jpg",
+                    fit: BoxFit.cover,
+                  ),
+                  SizedBox(
+                    height: 20,
+                  ),
+                  Text(
+                    myText,
+                    style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: TextField(
+                      controller: _nameController,
+                      decoration: InputDecoration(
+                          border: OutlineInputBorder(),
+                          hintText: "Enter Some text",
+                          labelText: "Name"),
+                    ),
+                  )
+                ],
+              ),
+            ),
+          ),
         ),
       ),
       /*
@@ -52,8 +93,11 @@ class HomePage extends StatelessWidget {
       You can choose from several options.
       */
       floatingActionButton: FloatingActionButton(
-        onPressed: () {},
-        child: Icon(Icons.edit),
+        onPressed: () {
+          myText = _nameController.text;
+          setState(() {});
+        },
+        child: Icon(Icons.send),
       ),
       drawer: Drawer(
         child: ListView(padding: const EdgeInsets.all(0), children: <Widget>[
@@ -79,7 +123,7 @@ class HomePage extends StatelessWidget {
           )
         ]),
       ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+      floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
     );
   }
 }
