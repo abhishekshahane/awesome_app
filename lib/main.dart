@@ -9,7 +9,7 @@ void main() {
   //WidgetsApp
   // Run the Widgets on called
   // This just displays a purple navbar
-  runApp(MyApp())
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
