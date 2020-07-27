@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 
+import '../drawer.dart';
+import 'package:http/http.dart' as http;
+import 'dart:convert';
+
 /*
 Overiding the first method, but inherting 
 the previous Widget.
@@ -11,8 +15,28 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  var myText = "My name is";
-  TextEditingController _nameController = TextEditingController();
+  var url = "http://jsonplaceholder.typicode.com/photos";
+  var data;
+  // var myText = "My name is";
+  // TextEditingController _nameController = TextEditingController();
+  @override
+  void initState() {
+    super.initState();
+    fetchData();
+  }
+
+  fetchData() async {
+    // Getting the url for usage(JSON File)
+    var res = await http.get(url);
+    // Convert it to string, so string.parse
+    data = jsonDecode(res.body);
+    setState(() {});
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -40,15 +64,21 @@ class _HomePageState extends State<HomePage> {
       make a nice card containing our image,
       that we uploaded here.
       */
-      body: Center(
-        child: Padding(
-          padding: const EdgeInsets.all(16),
-          child: SingleChildScrollView(
-            child:
-                NameCardWidget(myText: myText, nameController: _nameController),
-          ),
-        ),
-      ),
+      body: data != null
+          ? ListView.builder(
+              itemBuilder: (context, index) {
+                return ListTile(
+                  title: Text(data[index]["title"]),
+                  subtitle: Text("ID: ${data[index]["id"]}"),
+                  leading: Image.network(),
+                );
+              },
+              itemCount: data.length,
+            )
+          : Center(
+              child: CircularProgressIndicator(),
+            ),
+
       /*
       This particular icon is to edit.
       It is found in Icon(Icons.edit)
@@ -56,7 +86,6 @@ class _HomePageState extends State<HomePage> {
       */
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          myText = _nameController.text;
           setState(() {});
         },
         child: Icon(Icons.send),
