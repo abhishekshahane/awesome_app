@@ -17,6 +17,15 @@ class LoginPage extends StatelessWidget {
           children: <Widget>[
             TextFormField(
               controller: _usernameController,
+              keyboardType: TextInputType.emailAddress,
+              decoration: InputDecoration(
+                  hintText: "Enter email", labelText: "Username"),
+            ),
+            TextFormField(
+              controller: _passwordController,
+              keyboardType: TextInputType.emailAddress,
+              decoration: InputDecoration(
+                  hintText: "Enter password", labelText: "Password"),
             )
           ],
         ),
