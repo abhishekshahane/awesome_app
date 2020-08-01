@@ -52,20 +52,14 @@ class _HomePageState extends State<HomePage> {
       ),
       // Now for the body
       /*
-      Since we want to center it, we have to make the body 'center'
-      and the the child below a container. So flipping, essentially.
-      The clipbehaviour should be set to anti-alias, because
-      we don't want it to go outside.
-      We do want the rectangle to be circular, so adding
-      borderRadius(10).
-      */
-      /*
       The purpose of the code below is to
       make a nice card containing our image,
       that we uploaded here.
       */
       body: data != null
-          ? ListView.builder(
+          ? GridView.builder(
+              gridDelegate:
+                  SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
               itemBuilder: (context, index) {
                 return ListTile(
                   title: Text(data[index]["title"]),
