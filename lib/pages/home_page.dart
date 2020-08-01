@@ -69,8 +69,16 @@ class _HomePageState extends State<HomePage> {
               itemBuilder: (context, index) {
                 return ListTile(
                   title: Text(data[index]["title"]),
+                  // getting the data at index,
+                  // where and printing the id there as well
+                  /*
+                  So essentially, we are printing the data at
+                  index a, and also the id of that index
+                  a.
+                  */
                   subtitle: Text("ID: ${data[index]["id"]}"),
-                  leading: Image.network(),
+                  // Adding image for each thing. So printing the image url inside of a given index a, which is in data.
+                  leading: Image.network(data[index]["url"]),
                 );
               },
               itemCount: data.length,
