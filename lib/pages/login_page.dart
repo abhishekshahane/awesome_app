@@ -43,6 +43,8 @@ class _LoginPageState extends State<LoginPage> {
                   RaisedButton(
                     onPressed: () {},
                     child: Text("Enter"),
+                    color: Colors.orange,
+                    textColor: Colors.white,
                   )
                 ],
               ),
