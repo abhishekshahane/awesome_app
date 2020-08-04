@@ -49,6 +49,14 @@ class _HomePageState extends State<HomePage> {
       backgroundColor: Colors.lightBlueAccent[50],
       appBar: AppBar(
         title: Text("Flutter is nice"),
+        actions: <Widget>[
+          IconButton(
+            icon: Icon(Icons.exit_to_app),
+            onPressed: () {
+              Navigator.pop(context);
+            },
+          ),
+        ],
       ),
       // Now for the body
       /*
