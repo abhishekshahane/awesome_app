@@ -1,6 +1,8 @@
-# awesome_app
+# Awesome_App
 
-A new Flutter project.
+This is my code, as I follow along with the Flutter Essentials course on
+FreeCodeCamp.
+https://www.youtube.com/watch?v=P2IGQT3BZQo
 
 ## Getting Started
 
