@@ -10,6 +10,7 @@ the previous Widget.
 By class.
 */
 class HomePage extends StatefulWidget {
+  static const String routeName = "/home";
   @override
   _HomePageState createState() => _HomePageState();
 }

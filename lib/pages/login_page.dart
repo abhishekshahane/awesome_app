@@ -2,6 +2,7 @@ import 'package:awesome_app/pages/home_page.dart';
 import 'package:flutter/material.dart';
 
 class LoginPage extends StatefulWidget {
+  // Giving it a route
   static const String routeName = "/login";
   @override
   _LoginPageState createState() => _LoginPageState();
@@ -60,11 +61,7 @@ class _LoginPageState extends State<LoginPage> {
                           ),
                           RaisedButton(
                             onPressed: () {
-                              formKey.currentState.validate();
-                              Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) => HomePage()));
+                              Navigator.pushNamed(context, HomePage.routeName);
                             },
                             child: Text("Enter"),
                             color: Colors.orange,
